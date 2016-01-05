@@ -1,0 +1,8 @@
+<div class="tile">
+    <h3>{{'@type'}}</h3>
+    <div><strong>{{name}}</strong></div>
+    {{#withConfig}}
+        <div>{{lookup locations ../location}}</div>
+    {{/withConfig}}
+    <div>{{>@partial-block}}</div>
+</div>

@@ -1,0 +1,55 @@
+[
+  {
+    "@type": "Dimmer",
+    "@id": "Dimmer_01",
+    "name": "Entrance lights",
+    "location": "LivingRoom",
+    "state": {
+      "status": "ON",
+      "brightnessPercent": 60
+    },
+    "settings": {
+      "autoAdjust": false
+    }
+  },
+  {
+    "@type": "Curtains",
+    "@id": "Curtains_02",
+    "name": "Garden window curtains",
+    "location": "LivingRoom",
+    "state": {
+      "status": "OPEN",
+      "openPercent": 80,
+      "targetOpenPercent": 80
+    }
+  },
+  {
+    "@type": "LightSwitch",
+    "@id": "LightSwitch_05",
+    "name": "Kitchen main lights",
+    "location": "Kitchen",
+    "state": {
+      "status": "OFF"
+    }
+  },
+  {
+    "@type": "AirConditioner",
+    "@id": "AirConditioner_03",
+    "name": "Joe’s air conditioner",
+    "location": "Bedroom01",
+    "state": {
+      "status": "ON",
+      "targetTempCelcius": 24,
+      "sensorTemperatureCelcius": 27,
+      "fan": {
+        "mode": "SWING",
+        "angle": null
+      }
+    },
+    "settings": {
+      "mode": "COLD",
+      "energySaving": "ON"
+    }
+  }
+]
+
