@@ -29,13 +29,15 @@ Just add an instance to the JSON-LD file at rest/test/domotic-items
 Sensors are read-only, so all you need to do is create a template with the same name as the domotic item type but in camel case.
 
 For more complex scenarios, you can have a custom view or model by adding elements to 
-1. app/js/view/DomoticViewMapper
-2. app/js/model/DomoticModelMapper
+
+* app/js/view/DomoticViewMapper
+
+* app/js/model/DomoticModelMapper
 
 # Thanks
 
 Many thanks to:
 
-http://todomvc.com/
-http://blog.joanboixados.com/skeleton-for-a-backbone-marionette-application-using-require-js-bower-grunt-and-less/
-https://github.com/BoilerplateMVC/Marionette-Require-Boilerplate
+* http://todomvc.com/
+* http://blog.joanboixados.com/skeleton-for-a-backbone-marionette-application-using-require-js-bower-grunt-and-less/
+* https://github.com/BoilerplateMVC/Marionette-Require-Boilerplate
