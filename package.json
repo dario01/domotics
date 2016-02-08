@@ -1,7 +1,8 @@
 {
   "name": "domotics",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Home Automation Console based on JQuery, Backbone, Marionette application using Require.js, Bower, Grunt and LESS",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/dario01/domotics"
@@ -12,6 +13,13 @@
     "grunt-contrib-less": "latest",
     "grunt-contrib-qunit": "~0.5.2",
     "grunt-contrib-requirejs": "^0.4.4",
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jsdoc": "^1.1.0",
+    "jasmine-core": "^2.4.1",
+    "jsdoc": "^3.4.0",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.7",
+    "karma-requirejs": "^0.2.4"
   }
 }

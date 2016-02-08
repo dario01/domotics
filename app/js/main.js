@@ -1,125 +1,93 @@
+/**
+ * Application Entry Point
+ *
+ * @overview Manages the configuration of all AMD modules in the application.
+ * @see http://requirejs.org/docs/api.html
+ */
 require.config({
     paths: {
+        /**
+         * jQuery library
+         * @external jquery
+         * @see http://api.jquery.com/
+         * @see https://github.com/jquery/jquery
+         */
         'jquery': 'lib/jquery/dist/jquery',
+
+        /**
+         * jQuery UI library
+         * @external jquery-ui
+         * @see http://api.jqueryui.com/
+         * @see https://github.com/jquery/jquery-ui
+         */
         'jquery-ui': 'lib/jquery-ui/ui',
-        'jquery-mockjax': 'lib/jquery-mockjax/dist/jquery.mockjax',
-        'Q': 'lib/q/q',
+
+        /**
+         * Bootstrap library
+         * @external bootstrap
+         * @see http://getbootstrap.com/
+         * @see https://github.com/twbs/bootstrap
+         */
         'bootstrap': 'lib/bootstrap/dist/js/bootstrap',
+
+        /**
+         * Bootstrap Tree View library
+         * @external bootstrap-treeview
+         * @see https://github.com/jonmiles/bootstrap-treeview
+         * @see http://jonmiles.github.io/bootstrap-treeview/
+         */
         'bootstrap-treeview': 'lib/bootstrap-treeview/dist/bootstrap-treeview.min',
+
+        /**
+         * Underscore.js library
+         * @external underscore
+         * @see http://underscorejs.org/
+         * @see https://github.com/jashkenas/underscore
+         */
         'underscore': 'lib/underscore/underscore',
+
+        /**
+         * Handlebars.js library
+         * @external handlebars
+         * @see http://handlebarsjs.com/
+         * @see https://github.com/wycats/handlebars.js
+         */
         'handlebars': 'lib/handlebars/handlebars',
-        'templates': '../../dist/precompiled.handlebars',
+
+        /**
+         * Backbone.js library
+         * @external backbone
+         * @see http://backbonejs.org/
+         * @see https://github.com/jashkenas/backbone
+         */
         'backbone': 'lib/backbone/backbone',
+
+        /**
+         * Marionette.js library
+         * @external marionette
+         * @see http://marionettejs.com/
+         * @see https://github.com/marionettejs/backbone.marionette
+         */
         'marionette': 'lib/marionette/lib/backbone.marionette',
+
+        // Generated sources
+        'templates': '../../dist/precompiled.handlebars',
     },
-    shim: {
-        underscore: {
-            exports: '_'
-        },
-        'jquery-mockjax': {
-            deps: ['jquery']
-        },
-        bootstrap: {
-            deps: ['jquery']
-        },
-        'bootstrap-treeview': {
-            deps: ['jquery', 'bootstrap']
-        }
+    shim : {
+        "bootstrap" : { "deps" :['jquery'] }
     },
-    deps: ['jquery', 'underscore', 'bootstrap', 'jquery-mockjax', 'Q']
+    deps: ['jquery', 'bootstrap', 'init']
 });
 
-require(['jquery','app','handlebars', 'templates', 'underscore','config'],
-    function($, app, Handlebars, templates, _, config) {
+/**
+ * System Entry Point
+ */
+require(['jquery','app'],
+    function($, app) {
         console.log('System entry point');
 
-        configureHandlebars(Handlebars, templates, config);
-        configureUnderscore(_, config);
-
-        $(function(){ app.start(); });
-    }
-);
-
-function configureHandlebars(Handlebars, templates, config) {
-    console.log('Configuring Handlebars');
-
-    Handlebars.registerPartial('domoticTile', templates['app/templates/domotic_tile_partial.hbs']);
-
-    Handlebars.registerHelper('withConfig', function(options) {
-        return options.fn(config);
-    });
-}
-
-function configureUnderscore(_, config) {
-    console.log('Configuring Underscore');
-
-    _.mixin({
-        camel2Underscore: function(string){
-            return string.replace(/([^A-Z])([A-Z])/g,'$1_$2').toLowerCase();
-        }
-    });
-}
-
-var defaultData = [
-    {
-        text: 'Parent 1',
-        href: '#parent1',
-        tags: ['4'],
-        nodes: [
-            {
-                text: 'Child 1',
-                href: '#child1',
-                tags: ['2'],
-                nodes: [
-                    {
-                        text: 'Grandchild 1',
-                        href: '#grandchild1',
-                        tags: ['0']
-                    },
-                    {
-                        text: 'Grandchild 2',
-                        href: '#grandchild2',
-                        tags: ['0']
-                    }
-                ]
-            },
-            {
-                text: 'Child 2',
-                href: '#child2',
-                tags: ['0']
-            }
-        ]
-    },
-    {
-        text: 'Parent 2',
-        href: '#parent2',
-        tags: ['0']
-    },
-    {
-        text: 'Parent 3',
-        href: '#parent3',
-        tags: ['0']
-    },
-    {
-        text: 'Parent 4',
-        href: '#parent4',
-        tags: ['0']
-    },
-    {
-        text: 'Parent 5',
-        href: '#parent5'  ,
-        tags: ['0']
-    }
-];
-
-require(['jquery','bootstrap-treeview'], function($, treeview) {
-
-        $('#leftNav').treeview({
-            data: defaultData
-        });
-
-        $('#leftNav').on('nodeSelected', function(event, data) {
-            console.log(data.text);
+        $(function() {
+            app.start();
         });
     }
 );

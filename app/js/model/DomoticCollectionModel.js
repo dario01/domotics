@@ -2,6 +2,7 @@ define(['backbone','model/DomoticModelMapper', 'config'],
     function(Backbone, DomoticModelMapper, config) {
         return Backbone.Collection.extend({
             url: config.rest.domoticItems,
+
             model: function (attrs, options) {
                 return new (DomoticModelMapper(attrs['@type']))(attrs, options);
             },
@@ -10,13 +11,16 @@ define(['backbone','model/DomoticModelMapper', 'config'],
 
             comparator: 'name',
 
-            getActiveItems: function () {
-                return this.filter(this._isActive);
+            startAutoRefresh: function(interval) {
+                var self = this;
+                this.autoRefreshID = setInterval(function() {
+                    self.fetch();
+                }, interval);
             },
-
-            _isActive: function (item) {
-                return item.isActive();
+            stopAutoRefresh: function() {
+                clearInterval(this.autoRefreshID);
             }
+
         });
     }
 );

@@ -1,4 +1,4 @@
-define(['model/Model','underscore', 'model/SubModelFactory'],
+define(['model/Model','underscore'],
     function(Model, _) {
         return Model.extend({
             ACTIVE_STATUSES: ['ON', 'ONLINE', 'UP','CLOSED', 'LOCKED'],
@@ -11,14 +11,6 @@ define(['model/Model','underscore', 'model/SubModelFactory'],
                 'settings': {}
             },
 
-            validate: function(attrs) {
-                return attrs['@type'] !== undefined ? 'type missing'
-                     : attrs['@id'] !== undefined ? 'id missing'
-                     : true;
-            },
-            getType: function() {
-                return this.get('@type');
-            },
             getLocation: function() {
                 return this.get('location');
             },
@@ -30,6 +22,9 @@ define(['model/Model','underscore', 'model/SubModelFactory'],
             },
             getStatus: function() {
                 return this.getState().get('status') || 'OFF';
+            },
+            setStatus: function(status) {
+                return this.getState().set('status', status);
             },
             isActive: function() {
                 return !this.isInactive();

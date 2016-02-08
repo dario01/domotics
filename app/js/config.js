@@ -1,64 +1,115 @@
+/**
+ * Application Configuration
+ *
+ * @module config
+ */
 define([],
     function() {
-        return {
+        return /** @lends module:config */ {
+            /** Auto Refresh Interval (ms)
+             * @see view/DomoticListView
+             */
+            "autoRefreshInterval": 10000,
+
+            /** REST API end-points */
             "rest": {
-                "domoticItems": "/domotics/rest/test/domotic-items"
+                "domoticItems": "/domotics/test/rest/domotic-items"
             },
+
+            /** I18N: Rooms */
             "locations": {
-                "LivingRoom": "Living Room",
-                "Kitchen": "Kitchen",
-                "Bedroom01": "Joe's bedroom"
+                "LivingRoom": "the Living Room",
+                "Kitchen": "the Kitchen",
+                "Bedroom01": "Joe`s bedroom",
+                "Garage": "the Garage"
             },
+
+            /** I18N: Types */
+            "types": {
+                "Dimmer": "Dimmer",
+                "LightSwitch": "Light Switch",
+                "Curtains": "Curtains",
+                "AirConditioner": "Air Conditioner"
+            },
+
+            /** Left Nav Tree */
             "tree" : [
                 {
-                    text: 'Rooms',
-                    href: '#location/-',
-                    tags: ['4'],
-                    nodes: [
+                    "text": "Rooms",
+                    "href": "#location/-",
+                    "nodes": [
                         {
-                            text: 'Kitchen',
-                            href: '#location/Kitchen',
-                            tags: ['0']
+                            "text": "Living Room",
+                            "href": "#location/LivingRoom",
                         },
                         {
-                            text: "Joe's Bedroom",
-                            href: '#location/Bedroom01',
-                            tags: ['0']
+                            "text": "Kitchen",
+                            "href": "#location/Kitchen",
+                        },
+                        {
+                            "text": "Joe`s Bedroom",
+                            "href": "#location/Bedroom01",
+                        },
+                        {
+                            "text": "Garage",
+                            "href": "#location/Garage",
                         }
                     ]
                 },
                 {
-                    text: 'Lightning',
-                    href: '#type/-',
-                    tags: ['2'],
-                    nodes: [
+                    "text": "Lighting",
+                    "href": "#type/-",
+                    "nodes": [
                         {
-                            text: 'Dimmers',
-                            href: '#type/Dimmer',
-                            tags: ['0']
+                            "text": "Dimmers",
+                            "href": "#type/Dimmer"
                         },
                         {
-                            text: "Light Switches",
-                            href: '#type/LightSwitch',
-                            tags: ['0']
+                            "text": "Light Switches",
+                            "href": "#type/LightSwitch"
+                        },
+                        {
+                            "text": "Shades",
+                            "href": "#type/Shade"
+                        },
+                        {
+                            "text": "Courtains",
+                            "href": "#type/Courtain"
                         }
                     ]
                 },
                 {
-                    text: 'Parent 3',
-                    href: '#parent3',
-                    tags: ['0']
+                    "text": "Climate",
+                    "href": "#type/-",
+                    "nodes": [
+                        {
+                            "text": "Air Conditioning",
+                            "href": "#type/AirConditioner"
+                        },
+                        {
+                            "text": "Heating",
+                            "href": "#type/-",
+                            "nodes": [
+                                {
+                                    "text": "Central Heating",
+                                    "href": "#type/CentralHeating"
+                                },
+                                {
+                                    "text": "Portable Heaters",
+                                    "href": "#type/PortableHeater"
+                                },
+                                {
+                                    "text": "Fireplace",
+                                    "href": "#type/Fireplace"
+                                }
+                            ]
+                        },
+                        {
+                            "text": "Ventilation",
+                            "href": "#type/Fan"
+                        }
+                    ]
                 },
-                {
-                    text: 'Parent 4',
-                    href: '#parent4',
-                    tags: ['0']
-                },
-                {
-                    text: 'Parent 5',
-                    href: '#parent5'  ,
-                    tags: ['0']
-                }
             ]
         }
     }

@@ -1,0 +1,19 @@
+{{#>domoticTile}}
+    <div>
+        <div class="progress progress-bar-vertical">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{state.sensorTempCelcius}}" aria-valuemin="0" aria-valuemax="50" style="height: {{state.sensorTempCelcius}}%;">
+                <span>{{state.sensorTempCelcius}}&#x2103;</span>
+            </div>
+        </div>
+        <span><input id="spinner" value="{{state.targetTempCelcius}}">&#x2103;</span>
+    </div>
+<p></p>
+    <div class="btn-group" style="vertical-align: bottom">
+        <label id="ON" class="btn btn-sm btn-default {{#isActive}} btn-success active disabled {{/isActive}}">
+            ON
+        </label>
+        <label id="OFF" class="btn btn-sm btn-default {{^isActive}} btn-danger active disabled {{/isActive}}">
+            OFF
+        </label>
+    </div>
+{{/domoticTile}}

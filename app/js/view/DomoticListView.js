@@ -1,39 +1,37 @@
-define(['marionette','underscore', 'templates', 'view/DomoticViewMapper', 'model/filters'],
-    function(Marionette, _, templates, viewMapper, filters) {
+define(['marionette','underscore', 'templates', 'view/DomoticViewMapper', 'model/filters', 'view/BaseFiltersView', 'config'],
+    function(Marionette, _, templates, ViewMapper, filters, BaseFiltersView, config) {
         return Marionette.CompositeView.extend({
+            initialize: function() {
+                this.collection.fetch();
+                this.collection.startAutoRefresh(config.autoRefreshInterval);
+                this.listenTo(filters, 'change', this.render, this);
+            },
+            onBeforeDestroy: function() {
+                this.collection.stopAutoRefresh();
+            },
             template: templates['app/templates/domotic_list.hbs'],
 
             getChildView: function(child) {
-                return viewMapper(child.getType());
+                return ViewMapper(child.getType());
             },
 
             childViewContainer: '#item-list',
 
-            ui: {
-                toggle: '#toggle-all'
-            },
-
-            events: {
-                'click @ui.toggle': 'onToggleAllClick'
-            },
-
             collectionEvents: {
                 'change:completed': 'render'
-            },
-
-            initialize: function () {
-                this.listenTo(filters, 'change', this.render, this);
             },
 
             filter: function (child) {
                 return filters.matches(child);
             },
 
-            onToggleAllClick: function (e) {
-                var isChecked = e.currentTarget.checked;
-
-
+            emptyView: BaseFiltersView.extend({
+                template: templates['app/templates/empty_domotic_list.hbs'],
+            }),
+            emptyViewOptions: {
+                model: filters
             }
+
         });
     }
 );

@@ -1,6 +1,6 @@
-define(['marionette', 'view/NavView', 'view/DomoticListView', 'templates', 'model/DomoticCollectionModel'],
-    function(Marionette, NavView, DomoticListView, templates, DomoticCollection, Dimmer, LightSwitch) {
-        return new (Marionette.LayoutView.extend({
+define(['marionette', 'view/LeftNavView', 'view/DomoticListView', 'templates', 'model/DomoticCollectionModel'],
+    function(Marionette, LeftNavView, DomoticListView, templates, DomoticCollection, Dimmer, LightSwitch) {
+        return Marionette.LayoutView.extend({
             template: templates['app/templates/main.hbs'],
             regions: {
                 leftNav: '#leftNav',
@@ -8,13 +8,13 @@ define(['marionette', 'view/NavView', 'view/DomoticListView', 'templates', 'mode
             },
             onBeforeShow: function() {
                 console.log('onBeforeShow mainView');
-                this.leftNav.show(new NavView());
+                this.leftNav.show(new LeftNavView());
                 this.mainPanel.show(
                     new DomoticListView({
                         collection: new DomoticCollection()
                     })
                 );
             }
-        }));
+        });
     }
 );

@@ -1,0 +1,28 @@
+<div class="col-md-12">
+    <div class="jumbotron">
+        <h3>
+            No
+            {{#hasStatus}}
+                {{status}}
+            {{/hasStatus}}
+
+            {{#hasType}}
+                {{typeText}}
+            {{else}}
+                device
+            {{/hasType}}
+
+            was found in
+
+            {{#hasLocation}}
+                {{locationText}}
+            {{else}}
+                the House
+            {{/hasLocation}}
+        </h3>
+        <p>Selected filters did not match any home automation item.</p>
+        <p>
+            <a class="btn btn-lg btn-primary" href="#" role="button">Clear Filters &raquo;</a>
+        </p>
+    </div>
+</div>

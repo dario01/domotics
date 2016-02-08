@@ -1,8 +1,13 @@
 <div class="tile">
-    <h3>{{'@type'}}</h3>
-    <div><strong>{{name}}</strong></div>
-    {{#withConfig}}
-        <div>{{lookup locations ../location}}</div>
-    {{/withConfig}}
-    <div>{{>@partial-block}}</div>
+    {{#image}}
+        <img src="{{image}}"/>
+    {{/image}}
+    <div class="caption">
+        {{#withConfig}}
+            <h4>{{lookup types ../[@type]}}</h4>
+        {{/withConfig}}
+        <h5>{{name}}</h5>
+        {{>@partial-block}}
+    </div>
 </div>
+

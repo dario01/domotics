@@ -1,17 +1,20 @@
-define(['backbone'],
-    function(Backbone) {
-        return function(attribute) {
-            return Backbone.Model.extend({
-                attribute: attribute,
+define(['backbone', 'util/memoize'],
+    function(Backbone, memoize) {
+        return memoize(
+            function(attribute) {
+                return Backbone.Model.extend({
+                    attribute: attribute,
+                    idAttribute: '@id',
 
-                initialize: function(attributes, options) {
-                    this.parent = options.parent;
-                },
+                    initialize: function(attributes, options) {
+                        this.parent = options.parent;
+                    },
 
-                url: function() {
-                    return this.parent.url() + '/' + this.attribute;
-                }
-            });
-        }
+                    url: function() {
+                        return this.parent.url() + '/' + this.attribute;
+                    }
+                });
+            }
+        );
     }
 );

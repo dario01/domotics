@@ -1,17 +1,22 @@
-define(['model/DomoticItemModel','model/DimmerModel','model/LightSwitchModel'],
-    function(DomoticItem, Dimmer, LightSwitch) {
+define(['util/memoize', 'model/DomoticItemModel',
+        'model/item/CurtainsModel', 'model/item/DimmerModel','model/item/LightSwitchModel'],
+    function(memoize, DomoticItem,
+             Curtains, Dimmer, LightSwitch) {
 
         var DOMOTIC_MODEL_MAP = {
+            'Curtains': Curtains,
             'Dimmer': Dimmer,
             'LightSwitch': LightSwitch
         };
 
-        return function(type) {
-            return DOMOTIC_MODEL_MAP[type] || DomoticItem.extend({
-                    defaults: {
-                        '@type': type
-                    }
-                });
-        };
+        return memoize(
+            function(type) {
+                return DOMOTIC_MODEL_MAP[type] || DomoticItem.extend({
+                        defaults: {
+                            '@type': type
+                        }
+                    });
+            }
+        );
     }
 );

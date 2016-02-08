@@ -1,0 +1,10 @@
+{{#>domoticTile}}
+    <div class="btn-group">
+        <label id="ON" class="btn btn-sm btn-default {{#isActive}} btn-success active disabled {{/isActive}}">
+            ON
+        </label>
+        <label id="OFF" class="btn btn-sm btn-default {{^isActive}} btn-danger active disabled {{/isActive}}">
+            OFF
+        </label>
+    </div>
+{{/domoticTile}}

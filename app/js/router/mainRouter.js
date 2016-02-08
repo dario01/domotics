@@ -1,12 +1,11 @@
-define(['backbone','marionette','model/filters'],
-    function(Backbone, Marionette, filters) {
-        return new (Marionette.AppRouter.extend({
+define(['marionette','model/filters'],
+    function(Marionette, filters) {
+        return Marionette.AppRouter.extend({
             routes: {
                 "": "index",
                 "status/:status": function(status) { filters.set({status: status}); },
                 "location/:location": function(location) { filters.set({location: location}); },
                 "type/:type": function(type) { filters.set({type: type}); },
-
             },
 
             initialize: function() {
@@ -15,7 +14,6 @@ define(['backbone','marionette','model/filters'],
             },
 
             index: function() {
-                console.log('Navigation');
                 filters.resetFilters();
             },
 
@@ -27,6 +25,6 @@ define(['backbone','marionette','model/filters'],
                 this.navigate(filters.toURL());
             }
 
-        }));
+        });
     }
 );

@@ -59,6 +59,15 @@ module.exports = function(grunt) {
                 dest: 'dist/precompiled.handlebars.js'
             }
         },
+        jsdoc : {
+            dist : {
+                src: ['app/js/**/*.js', '!app/js/lib/**/*.js'],
+                options: {
+                    destination: 'doc',
+                    readme: 'README.md'
+                }
+            }
+        },
         watch: {
             less: {
                 // Watch all .less files from the styles directory)
@@ -95,6 +104,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-handlebars');
+    grunt.loadNpmTasks('grunt-jsdoc');
 
     // Task definition
     grunt.registerTask('default', ['watch']);

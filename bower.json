@@ -1,10 +1,8 @@
 {
   "name": "domotics",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dependencies": {
     "jquery": "latest",
-    "jquery-mockjax": "latest",
-    "q": "~1.0",
     "backbone": "latest",
     "underscore": "latest",
     "requirejs": "latest",
@@ -14,6 +12,6 @@
     "jquery-ui": "latest"
   },
   "devDependencies": {
-    "qunit": "~1.20.0"
+
   }
 }

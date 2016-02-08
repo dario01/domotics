@@ -1,3 +1,2 @@
-app/js/lib
 node_modules
-dist
+.idea
