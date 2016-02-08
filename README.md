@@ -25,8 +25,12 @@ Installing this project:
 ## Generate JsDocs
    `grunt jsdoc`
 
+# The Web Application can be accessed at 
+   `app/index.html`
 
-# Adding a new domotic item instance
+# Adding new domotics
+Upd
+## Adding a new domotic item instance
 
 Just add an instance to the JSON-LD file at `rest/test/domotic-items`
 
