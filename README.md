@@ -29,7 +29,7 @@ Installing this project:
    `app/index.html`
 
 # Adding new domotics
-Upd
+
 ## Adding a new domotic item instance
 
 Just add an instance to the JSON-LD file at `rest/test/domotic-items`
