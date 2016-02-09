@@ -6815,3 +6815,13 @@ a.tile.active {
   height: 0;
   font-size: xx-small;
 }
+.arrow-left {
+  margin: 4px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 100px solid #777777;
+}

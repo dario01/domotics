@@ -116,7 +116,7 @@ this["JST"]["app/templates/item/curtains.hbs"] = Handlebars.template({"1":functi
 },"usePartial":true,"useData":true});
 
 this["JST"]["app/templates/item/dimmer.hbs"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
-    return "    <div id=\"slider\"></div>\n";
+    return "    <div id=\"slider\"></div>\n    <table style=\"margin: 2px\">\n        <tr>\n            <td><span class=\"glyphicon glyphicon-minus\" aria-hidden=\"true\"></span></td>\n            <td width=\"100%\"><div class=\"arrow-left\"></div></td>\n            <td><span class=\"glyphicon glyphicon-plus\" aria-hidden=\"true\"></span></td>\n        </tr>\n    </table>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 

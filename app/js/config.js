@@ -9,7 +9,7 @@ define([],
             /** Auto Refresh Interval (ms)
              * @see view/DomoticListView
              */
-            "autoRefreshInterval": 10000,
+            "autoRefreshInterval": 100000,
 
             /** REST API end-points */
             "rest": {
