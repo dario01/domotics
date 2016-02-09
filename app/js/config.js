@@ -73,8 +73,8 @@ define([],
                             "href": "#type/Shade"
                         },
                         {
-                            "text": "Courtains",
-                            "href": "#type/Courtain"
+                            "text": "Curtains",
+                            "href": "#type/Curtains"
                         }
                     ]
                 },
