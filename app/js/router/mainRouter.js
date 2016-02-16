@@ -1,3 +1,5 @@
+"use strict";
+
 define(['marionette','model/filters'],
     function(Marionette, filters) {
         return Marionette.AppRouter.extend({

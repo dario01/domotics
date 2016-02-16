@@ -1,3 +1,5 @@
+"use strict";
+
 define(['jquery', 'handlebars', 'templates', 'underscore', 'config'],
     function($, Handlebars, templates, _, config) {
         console.log('System Initialization');

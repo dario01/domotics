@@ -11,6 +11,11 @@ module.exports = function(grunt) {
         removeCombined: false,
         findNestedDependencies: true,
 
+        replaceRequireScript: [{
+            files: ['app/index.html'],
+            module: 'main'
+        }],
+
         //Removes console.logs for production
         onBuildWrite: function (moduleName, path, contents) {
             if(/(.*)js\/modules\/(.*)/.test(path)) return contents.replace(/console.log(.*);/g, ';');
@@ -95,7 +100,12 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 }
-            }
+            },
+            jsdoc: {
+                // Watch only main.js so that we do not constantly jsDoc the .js files
+                files: [ 'app/js/main.js' ],
+                tasks: [ 'jsdoc' ]
+            },
         }
     });
 

@@ -1,3 +1,5 @@
+"use strict";
+
 define(['view/DomoticItemView', 'templates','jquery-ui/slider'],
     function(DomoticItemView, templates) {
         return DomoticItemView.extend({
@@ -12,7 +14,7 @@ define(['view/DomoticItemView', 'templates','jquery-ui/slider'],
             },
 
             onSliderChange: function( event ) {
-                this.model.getState().set({ brightnessPercent: this.getSliderValue() });
+                this.model.set({ brightnessPercent: this.getSliderValue() });
             },
 
             getSliderValue: function() {
@@ -20,7 +22,7 @@ define(['view/DomoticItemView', 'templates','jquery-ui/slider'],
             },
 
             onRender: function() {
-                var brightness = this.model.getState().get('brightnessPercent');
+                var brightness = this.model.get('brightnessPercent');
                 var ctrl = this.ui.slider;
                 ctrl.slider({
                     min:0, max:100,

@@ -1,30 +1,16 @@
+"use strict";
+
 define(['model/Model','underscore'],
     function(Model, _) {
         return Model.extend({
             ACTIVE_STATUSES: ['ON', 'ONLINE', 'UP','CLOSED', 'LOCKED'],
             INACTIVE_STATUSES: ['OFF', 'STAND_BY', 'OFFLINE', 'DOWN', 'OPEN', 'UNLOCKED'],
 
-            subAttributes: ['state','settings'],
-
-            defaults: {
-                'state': {},
-                'settings': {}
-            },
-
-            getLocation: function() {
-                return this.get('location');
-            },
-            getState: function() {
-                return this.get('state');
-            },
-            getSettings: function() {
-                return this.get('settings');
-            },
             getStatus: function() {
-                return this.getState().get('status') || 'OFF';
+                return this.get('status') || 'OFF';
             },
             setStatus: function(status) {
-                return this.getState().set('status', status);
+                return this.set('status', status);
             },
             isActive: function() {
                 return !this.isInactive();

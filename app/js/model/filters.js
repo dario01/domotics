@@ -1,3 +1,5 @@
+"use strict";
+
 define(['backbone', 'handlebars'],
     function(Backbone, Handlebars) {
         return new (Backbone.Model.extend({

@@ -1,3 +1,5 @@
+"use strict";
+
 define(['marionette','underscore', 'templates', 'view/DomoticViewMapper', 'model/filters', 'view/BaseFiltersView', 'config'],
     function(Marionette, _, templates, ViewMapper, filters, BaseFiltersView, config) {
         return Marionette.CompositeView.extend({

@@ -1,3 +1,5 @@
+"use strict";
+
 define(['backbone','model/DomoticModelMapper', 'config'],
     function(Backbone, DomoticModelMapper, config) {
         return Backbone.Collection.extend({

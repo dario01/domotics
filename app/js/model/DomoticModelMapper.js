@@ -1,3 +1,5 @@
+"use strict";
+
 define(['util/memoize', 'model/DomoticItemModel',
         'model/item/CurtainsModel', 'model/item/DimmerModel','model/item/LightSwitchModel'],
     function(memoize, DomoticItem,

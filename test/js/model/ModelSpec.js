@@ -20,40 +20,6 @@ define(['underscore','backbone','model/Model'],
                 });
             });
 
-            it('supports sub-models', function() {
-                var ModelWithSubmodels = Model.extend({
-                    subAttributes: ['sub1', 'sub2'],
-                    urlRoot: '/url-root'
-                });
-                var model = new ModelWithSubmodels({
-                    '@id': 'ID',
-                    '@type' : 'TYPE',
-                    'attr': 'ATTR',
-                    'sub1': { 'a': 'A' }
-                });
-
-                expect(model.url()).toEqual('/url-root/ID');
-
-                expect(model.get('sub1')).toEqual(jasmine.any(Backbone.Model));
-                expect(model.get('sub1').id).toEqual('ID/sub1');
-                expect(model.get('sub1').get('@id')).toEqual('ID/sub1');
-                expect(model.get('sub1').get('a')).toEqual('A');
-                expect(model.get('sub1').url()).toEqual('/url-root/ID/sub1');
-
-                expect(model.get('sub2')).toBeDefined();
-                expect(model.get('sub2')).toEqual(jasmine.any(Backbone.Model));
-                expect(model.get('sub2').id).toEqual('ID/sub2');
-                expect(model.get('sub2').get('@id')).toEqual('ID/sub2');
-                expect(model.get('sub2').url()).toEqual('/url-root/ID/sub2');
-
-                expect(model.toJSON()).toEqual({
-                    "@id": "ID",
-                    "@type": "TYPE",
-                    "attr": "ATTR",
-                    "sub1": { "@id": "ID/sub1", "a": "A" },
-                    "sub2": { "@id": "ID/sub2" }
-                });
-            });
         });
     }
 );

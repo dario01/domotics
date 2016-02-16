@@ -9,6 +9,8 @@
  * @requires module:view/RootView
  * @requires module:router/MainRouter
  */
+"use strict";
+
 define(['backbone','marionette','view/RootView','router/MainRouter'],
     function(Backbone, Marionette, RootView, MainRouter) {
         return new (Marionette.Application.extend(/** @lends App.prototype */ {

@@ -1,3 +1,5 @@
+"use strict";
+
 define(['marionette', 'view/LeftNavView', 'view/DomoticListView', 'templates', 'model/DomoticCollectionModel'],
     function(Marionette, LeftNavView, DomoticListView, templates, DomoticCollection, Dimmer, LightSwitch) {
         return Marionette.LayoutView.extend({

@@ -7,6 +7,8 @@
  * @requires module:view/MainView
  * @requires module:view/TopNavView
  */
+"use strict";
+
 define(['marionette', 'view/MainView', 'view/TopNavView'],
     function(Marionette, MainView, TopNavView) {
         return Marionette.LayoutView.extend(/** @lends view/RootView.prototype */ {

@@ -1,3 +1,5 @@
+"use strict";
+
 define(['util/memoize', 'underscore', 'templates', 'view/DomoticItemView',
         'view/item/AirConditionerView', 'view/item/CurtainsView', 'view/item/DimmerView','view/item/LightSwitchView'],
     function(memoize, _ , templates, DomoticItemView,

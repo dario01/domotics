@@ -1,3 +1,5 @@
+"use strict";
+
 define(['view/DomoticItemView', 'templates'],
     function(DomoticItemView, templates) {
         return DomoticItemView.extend({

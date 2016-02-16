@@ -1,3 +1,5 @@
+"use strict";
+
 define(['marionette', 'model/filters', 'config'],
     function(Marionette, filters, config) {
         return Marionette.ItemView.extend({

@@ -3,9 +3,11 @@
  *
  * @module config
  */
+"use strict";
+
 define([],
     function() {
-        return /** @lends module:config */ {
+        return /** @lends namespace:config */ {
             /** Auto Refresh Interval (ms)
              * @see view/DomoticListView
              */

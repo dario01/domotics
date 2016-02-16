@@ -1,3 +1,5 @@
+"use strict";
+
 define(['marionette', 'templates','config', 'bootstrap-treeview'],
     function(Marionette, templates, config) {
         return Marionette.ItemView.extend({

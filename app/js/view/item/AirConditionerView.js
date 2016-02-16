@@ -1,3 +1,5 @@
+"use strict";
+
 define(['view/DomoticItemView', 'templates','jquery-ui/spinner'],
     function(DomoticItemView, templates) {
         return DomoticItemView.extend({
@@ -16,7 +18,7 @@ define(['view/DomoticItemView', 'templates','jquery-ui/spinner'],
             },
 
             onSpinnerChange: function( event ) {
-                this.model.getState().set({ targetTempCelcius: this.getSpinnerValue() });
+                this.model.set({ targetTempCelcius: this.getSpinnerValue() });
             },
 
             getSpinnerValue: function() {
@@ -24,7 +26,7 @@ define(['view/DomoticItemView', 'templates','jquery-ui/spinner'],
             },
 
             onRender: function() {
-                var value = this.model.getState().get('targetTempCelcius');
+                var value = this.model.get('targetTempCelcius');
                 var ctrl = this.ui.spinner;
                 ctrl.spinner({
                     min:0, max:100,

@@ -4,6 +4,8 @@
  * @overview Manages the configuration of all AMD modules in the application.
  * @see http://requirejs.org/docs/api.html
  */
+"use strict";
+
 require.config({
     paths: {
         /**
@@ -79,8 +81,10 @@ require.config({
     deps: ['jquery', 'bootstrap', 'init']
 });
 
+
 /**
  * System Entry Point
+ * Start-up the {@link App}
  */
 require(['jquery','app'],
     function($, app) {

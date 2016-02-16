@@ -73,22 +73,22 @@ this["JST"]["app/templates/empty_domotic_list.hbs"] = Handlebars.template({"1":f
 },"useData":true});
 
 this["JST"]["app/templates/item/air_conditioner.hbs"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
-    var stack1, helper, options, alias1=container.lambda, alias2=container.escapeExpression, alias3=depth0 != null ? depth0 : {}, alias4=helpers.helperMissing, alias5="function", alias6=helpers.blockHelperMissing, buffer = 
+    var stack1, helper, options, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression, alias5=helpers.blockHelperMissing, buffer = 
   "    <div>\n        <div class=\"progress progress-bar-vertical\">\n            <div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\""
-    + alias2(alias1(((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.sensorTempCelcius : stack1), depth0))
+    + alias4(((helper = (helper = helpers.sensorTempCelcius || (depth0 != null ? depth0.sensorTempCelcius : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"sensorTempCelcius","hash":{},"data":data}) : helper)))
     + "\" aria-valuemin=\"0\" aria-valuemax=\"50\" style=\"height: "
-    + alias2(alias1(((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.sensorTempCelcius : stack1), depth0))
+    + alias4(((helper = (helper = helpers.sensorTempCelcius || (depth0 != null ? depth0.sensorTempCelcius : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"sensorTempCelcius","hash":{},"data":data}) : helper)))
     + "%;\">\n                <span>"
-    + alias2(alias1(((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.sensorTempCelcius : stack1), depth0))
+    + alias4(((helper = (helper = helpers.sensorTempCelcius || (depth0 != null ? depth0.sensorTempCelcius : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"sensorTempCelcius","hash":{},"data":data}) : helper)))
     + "&#x2103;</span>\n            </div>\n        </div>\n        <span><input id=\"spinner\" value=\""
-    + alias2(alias1(((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.targetTempCelcius : stack1), depth0))
+    + alias4(((helper = (helper = helpers.targetTempCelcius || (depth0 != null ? depth0.targetTempCelcius : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"targetTempCelcius","hash":{},"data":data}) : helper)))
     + "\">&#x2103;</span>\n    </div>\n<p></p>\n    <div class=\"btn-group\" style=\"vertical-align: bottom\">\n        <label id=\"ON\" class=\"btn btn-sm btn-default ";
-  stack1 = ((helper = (helper = helpers.isActive || (depth0 != null ? depth0.isActive : depth0)) != null ? helper : alias4),(options={"name":"isActive","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data}),(typeof helper === alias5 ? helper.call(alias3,options) : helper));
-  if (!helpers.isActive) { stack1 = alias6.call(depth0,stack1,options)}
+  stack1 = ((helper = (helper = helpers.isActive || (depth0 != null ? depth0.isActive : depth0)) != null ? helper : alias2),(options={"name":"isActive","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data}),(typeof helper === alias3 ? helper.call(alias1,options) : helper));
+  if (!helpers.isActive) { stack1 = alias5.call(depth0,stack1,options)}
   if (stack1 != null) { buffer += stack1; }
   buffer += "\">\n            ON\n        </label>\n        <label id=\"OFF\" class=\"btn btn-sm btn-default ";
-  stack1 = ((helper = (helper = helpers.isActive || (depth0 != null ? depth0.isActive : depth0)) != null ? helper : alias4),(options={"name":"isActive","hash":{},"fn":container.noop,"inverse":container.program(4, data, 0),"data":data}),(typeof helper === alias5 ? helper.call(alias3,options) : helper));
-  if (!helpers.isActive) { stack1 = alias6.call(depth0,stack1,options)}
+  stack1 = ((helper = (helper = helpers.isActive || (depth0 != null ? depth0.isActive : depth0)) != null ? helper : alias2),(options={"name":"isActive","hash":{},"fn":container.noop,"inverse":container.program(4, data, 0),"data":data}),(typeof helper === alias3 ? helper.call(alias1,options) : helper));
+  if (!helpers.isActive) { stack1 = alias5.call(depth0,stack1,options)}
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\">\n            OFF\n        </label>\n    </div>\n";
 },"2":function(container,depth0,helpers,partials,data) {
@@ -102,13 +102,13 @@ this["JST"]["app/templates/item/air_conditioner.hbs"] = Handlebars.template({"1"
 },"usePartial":true,"useData":true});
 
 this["JST"]["app/templates/item/curtains.hbs"] = Handlebars.template({"1":function(container,depth0,helpers,partials,data) {
-    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
+    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
   return "    <div class=\"progress\">\n        <div class=\"progress-bar\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"100\"\n             aria-valuenow=\""
-    + alias2(alias1(((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.sensorOpenPercent : stack1), depth0))
+    + alias4(((helper = (helper = helpers.sensorOpenPercent || (depth0 != null ? depth0.sensorOpenPercent : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"sensorOpenPercent","hash":{},"data":data}) : helper)))
     + "\"\n             style=\"width: "
-    + alias2(alias1(((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.sensorOpenPercent : stack1), depth0))
-    + "%;\">\n        </div>\n        <div id=\"slider\" style=\"margin-top: 4px\"></div>\n    </div>\n";
+    + alias4(((helper = (helper = helpers.sensorOpenPercent || (depth0 != null ? depth0.sensorOpenPercent : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"sensorOpenPercent","hash":{},"data":data}) : helper)))
+    + "%\">\n        </div>\n        <div id=\"slider\" style=\"margin-top: 4px\"></div>\n    </div>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 

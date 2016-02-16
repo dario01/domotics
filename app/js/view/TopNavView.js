@@ -1,3 +1,5 @@
+"use strict";
+
 define(['view/BaseFiltersView', 'templates'],
     function(BaseFiltersView, templates) {
         return BaseFiltersView.extend({
