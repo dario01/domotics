@@ -32,7 +32,7 @@
     "status": "ON",
     "targetTempCelcius": 24,
     "sensorTempCelcius": 27,
-    "fan": {
+    "fanSettings": {
       "mode": "SWING",
       "angle": null
     },

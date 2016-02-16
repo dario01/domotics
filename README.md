@@ -34,7 +34,7 @@ Installing this project:
 
 Just add an instance to the JSON-LD file at `rest/test/domotic-items`
 
-# Adding a new domotic type
+## Adding a new domotic type
 
 Sensors are read-only, so all you need to do is create a template under `app/templates/item` with the same name as the domotic item type (but in camel case).
 
@@ -49,6 +49,8 @@ See respective examples under:
 * `app/js/view/item`
 
 * `app/js/model/item`
+
+Note: Please keep the schema at `schema/domotics.owl.jsonld` up-to-date.
 
 # Thanks
 

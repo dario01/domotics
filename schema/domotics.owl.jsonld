@@ -1,0 +1,212 @@
+{
+  "@context": {
+    "@base": "http://domotics.org/schema/",
+    
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdf": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "schema": "http://schema.org/",
+    
+    "owl:imports":    { "@type": "@id" },
+    "rdf:subClassOf": { "@type": "@id" },
+    "rdf:domain":     { "@type": "@id" },
+    "rdf:range":      { "@type": "@id" },
+    "owl:unionOf":    { "@type": "@id" },
+    "owl:onProperty": { "@type": "@id" },
+    "owl:someValuesFrom": { "@type": "@id" },
+    
+    "rdf:label":      { "@container": "@language" },
+    "rdf:comment":    { "@container": "@language" }
+  },
+  "@graph": [
+    {
+      "@id": "http://domotics.org/schema/",
+      "@type": "owl:Ontology",
+    },
+    {
+      "@id": "AirConditioner",
+      "@type": "owl:Class",
+      "rdf:label": { "en": "Air Conditioner" },
+      "rdf:subClassOf": [ "DomoticItem", "Climate" ]
+    },
+    {
+      "@id": "CentralHeating",
+      "@type": "owl:Class",
+      "rdf:label": { "en": "Central Heating System" },
+      "rdf:subClassOf": [ "DomoticItem", "Heating" ]
+    },
+    {
+      "@id": "Climate",
+      "@type": "owl:Class",
+      "rdf:comment": { "en": "Climate covers all thermal aspects including sensors, thermometers,  controllers, weather, heating, cooling, shading, etc." },
+      "rdf:label": { "en": "Climate" },
+      "rdf:subClassOf": "Domotics"
+    },
+    {
+      "@id": "Curtains",
+      "@type": "owl:Class",
+      "rdf:label": { "en": "Curtains" },
+      "rdf:subClassOf": [ "DomoticItem", "ShadesAndCurtains" ]
+    },
+    {
+      "@id": "Dimmer",
+      "@type": "owl:Class",
+      "rdf:label": { "en": "Dimmer" },
+      "rdf:subClassOf": [ "DomoticItem", "Lighting" ]
+    },
+    {
+      "@id": "DomoticItem",
+      "@type": "owl:Class",
+      "rdf:comment": { "en": "Elements of a Smart Home, including home systems, appliances, devices, sensors, controllers, etc." },
+      "rdf:label": { "en": "Domotic Item" },
+      "rdf:subClassOf": [
+        {
+          "@id": "schema:Thing"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "schema:location",
+          "owl:someValuesFrom": "schema:Place"
+        },
+        {
+          "@type": "owl:Restriction",
+          "owl:onProperty": "schema:name",
+          "owl:someValuesFrom": "xsd:string"
+        }
+      ]
+    },
+    {
+      "@id": "Domotics",
+      "@type": "owl:Class",
+      "rdf:comment": { "en": "Domotics aim is to facilitate remote-control, integration and automation of domestic appliances and other devices for the comfort and safety of the house residents (also known as Home Automation); including lighting, thermal, security, communications and entertainment facilities (also known as Smart Home). \nThe proliferation of connected devices in the era of the Internet of Things adds to the ecosystem of components made available today to modern residents as part of a growing number of smart home technologies." },
+      "rdf:label": { "en": "Domotics" }
+    },
+    {
+      "@id": "Fan",
+      "@type": "owl:Class",
+      "rdf:label": { "en": "Ventilation Systems" },
+      "rdf:subClassOf": [ "Climate", "DomoticItem" ]
+    },
+    {
+      "@id": "FanSettings",
+      "@type": "owl:Class",
+      "rdf:label": { "en": "Ventilation Settings" }
+    },
+    {
+      "@id": "Fireplace",
+      "@type": "owl:Class",
+      "rdf:label": { "en": "Fireplace" },
+      "rdf:subClassOf": [ "DomoticItem", "Heating" ]
+    },
+    {
+      "@id": "Heating",
+      "@type": "owl:Class",
+      "rdf:label": { "en": "Heating" },
+      "rdf:subClassOf": "Climate"
+    },
+    {
+      "@id": "LightSwitch",
+      "@type": "owl:Class",
+      "rdf:label": { "en": "Light Switch" },
+      "rdf:subClassOf": [ "DomoticItem", "Lighting" ]
+    },
+    {
+      "@id": "Lighting",
+      "@type": "owl:Class",
+      "rdf:comment": { "en": "Lighting covers all aspects affecting light, be it as a source or filter of light, artificial or natural light; including bulbs, lamps, shades and curtains." },
+      "rdf:label": { "en": "Lighting" },
+      "rdf:subClassOf": "Domotics"
+    },
+    {
+      "@id": "PortableHeater",
+      "@type": "owl:Class",
+      "rdf:label": { "en": "Portable Heater" },
+      "rdf:subClassOf": [ "DomoticItem", "Heating" ]
+    },
+    {
+      "@id": "Shade",
+      "@type": "owl:Class",
+      "rdf:label": { "en": "Shade" },
+      "rdf:subClassOf": [ "DomoticItem", "ShadesAndCurtains" ]
+    },
+    {
+      "@id": "ShadesAndCurtains",
+      "@type": "owl:Class",
+      "rdf:comment": { "en": "Shades and Curtains affect both luminous and thermal conditions in the room." },
+      "rdf:label": { "en": "Shades and Curtains" },
+      "rdf:subClassOf": [ "Climate", "Lighting" ]
+    },
+    {
+      "@id": "angle",
+      "@type": "owl:DatatypeProperty",
+      "rdf:domain": {
+        "@type": "owl:Class",
+        "owl:unionOf": [ "Fan", "FanSettings" ]
+      },
+      "rdf:range": "xsd:decimal"
+    },
+    {
+      "@id": "autoAdjust",
+      "@type": "owl:DatatypeProperty",
+      "rdf:domain": "Dimmer",
+      "rdf:range": "xsd:boolean"
+    },
+    {
+      "@id": "brightnessPercent",
+      "@type": "owl:DatatypeProperty",
+      "rdf:domain": "Dimmer",
+      "rdf:range": "xsd:integer"
+    },
+    {
+      "@id": "energySaving",
+      "@type": "owl:DatatypeProperty",
+      "rdf:domain": "AirConditioner",
+      "rdf:range": "xsd:string"
+    },
+    {
+      "@id": "mode",
+      "@type": "owl:DatatypeProperty",
+      "rdf:domain": {
+        "@type": "owl:Class",
+        "owl:unionOf": [ "AirConditioner", "Fan", "FanSettings" ]
+      },
+      "rdf:range": "xsd:string"
+    },
+    {
+      "@id": "sensorOpenPercent",
+      "@type": "owl:DatatypeProperty",
+      "rdf:domain": "Curtains",
+      "rdf:range": "xsd:integer"
+    },
+    {
+      "@id": "sensorTempCelcius",
+      "@type": "owl:DatatypeProperty",
+      "rdf:domain": "AirConditioner",
+      "rdf:range": "xsd:decimal"
+    },
+    {
+      "@id": "status",
+      "@type": "owl:DatatypeProperty",
+      "rdf:domain": "DomoticItem",
+      "rdf:range": "xsd:string"
+    },
+    {
+      "@id": "targetOpenPercent",
+      "@type": "owl:DatatypeProperty",
+      "rdf:domain": "Curtains",
+      "rdf:range": "xsd:integer"
+    },
+    {
+      "@id": "targetTempCelcius",
+      "@type": "owl:DatatypeProperty",
+      "rdf:domain": "AirConditioner",
+      "rdf:range": "xsd:decimal"
+    },
+    {
+      "@id": "fanSettings",
+      "@type": "owl:ObjectProperty",
+      "rdf:domain": "AirConditioner",
+      "rdf:range": "FanSettings"
+    }
+  ]
+}
